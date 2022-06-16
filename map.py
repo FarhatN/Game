@@ -10,7 +10,9 @@ class Map:
     #def generate_forest():
 
     def print_map(self):
+        print('🔲' * (self.w + 2))
         for row in self.cells:
+            print('🔲', end = '')
             for cell in row:
                 if cell == 0:
                     print('❎', end ='')
@@ -22,9 +24,12 @@ class Map:
                     print('🏥', end = '')
                 elif cell == 4:
                     print('🏦', end = '')
-            print()
+            print('🔲')
+        print('🔲' * (self.w + 2))
 
     def __init__(self, w, h):
+        self.w = w
+        self.h = h
         self.cells = [[0 for i in range(w)] for j in range(h)]
 
 tmp = Map(10, 10)
