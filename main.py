@@ -7,8 +7,9 @@ import os
 TICK_SLEEP = 0.05
 TREE_UPDATE = 50
 FIRE_UPDATE = 25
+MAP_W, MAP_H = 20, 10
 
-field = Map(20, 10)
+field = Map(MAP_W, MAP_H)
 field.generate_forest(3, 10)
 field.generate_river(10)
 field.generate_river(10)
