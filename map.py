@@ -12,7 +12,8 @@ CELL_TYPES = '❎🌳🌊🏥🏦'
 class Map:
     def generate_river(self, l):
         rc = randcell(self.w, self.h)
-        print(rc)
+        rx, ry = rc[0], rc[1]
+        self.cells[rx][ry] = 2
 
     def generate_forest(self, r, mxr):
         for ri in range(self.h):
@@ -44,4 +45,4 @@ class Map:
 tmp = Map(20, 10)
 #tmp.generate_forest(1, 10)
 tmp.generate_river(10)
-#tmp.print_map()
+tmp.print_map()
