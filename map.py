@@ -1,3 +1,5 @@
+from utils import randbool
+
 # 0 - поле
 # 1 - дерево
 # 2 - река
@@ -10,9 +12,10 @@ class Map:
     #def generate_rivers():
 
     def generate_forest(self, r, mxr):
-        for ri in self.h:
-            for si in self.w:
-                self.cells[ri][si] = 1
+        for ri in range(self.h):
+            for si in range(self.w):
+                if randbool(r, mxr):
+                    self.cells[ri][si] = 1
 
     def print_map(self):
         print('🔲' * (self.w + 2))
