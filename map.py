@@ -27,6 +27,11 @@ class Map:
             print('🔲')
         print('🔲' * (self.w + 2))
 
+    def check_bounds(self, x, y):
+        if (x < 0 or y < 0 or x >= self.h or y >= self.w):
+            return False
+        return True
+
     def __init__(self, w, h):
         self.w = w
         self.h = h
@@ -37,4 +42,8 @@ tmp.cells[1][1] = 1
 tmp.cells[2][2] = 2
 tmp.cells[3][3] = 3
 tmp.cells[4][4] = 4
+
+if (tmp.check_bounds(2, 3)):
+    print('YES')
+
 tmp.print_map()
