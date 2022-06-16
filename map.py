@@ -56,7 +56,8 @@ class Map:
                 cell = self.cells[ri][ci]
                 if cell == 5:
                     self.cells[ri][ci] = 0
-        self.add_fire()
+        for i in range(5):
+            self.add_fire()
 
     def check_bounds(self, x, y):
         if (x < 0 or y < 0 or x >= self.h or y >= self.w):
