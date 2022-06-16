@@ -8,3 +8,4 @@ class Map:
     def generate_forest():
 
     def __init__(self, w, h):
+        self.cells = [[0 for i in range(w)] for j in range(h)]
