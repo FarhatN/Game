@@ -1,5 +1,4 @@
-from utils import randbool
-from utils import randcell
+from utils import randbool, randcell, randcell2
 
 # 0 - поле
 # 1 - дерево
@@ -14,6 +13,8 @@ class Map:
         rc = randcell(self.w, self.h)
         rx, ry = rc[0], rc[1]
         self.cells[rx][ry] = 2
+        while l > 0:
+            rc2 = randcell2(rx, ry)
 
     def generate_forest(self, r, mxr):
         for ri in range(self.h):
