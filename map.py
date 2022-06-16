@@ -31,7 +31,7 @@ class Map:
     def generate_tree(self):
         c = randcell(self.w, self.h)
         cx, cy = c[0], c[1]
-        if (self.check_bounds(cx, cy) and self.cells[cx][cy] == 0):
+        if (self.cells[cx][cy] == 0):
             self.cells[cx][cx] = 1
 
     def print_map(self):
