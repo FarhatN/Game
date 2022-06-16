@@ -50,6 +50,14 @@ class Map:
         if self.cells[cx][cy] == 1:
             self.cells[cx][cy] = 5
 
+    def update_fires(self):
+        for ri in range(self.h):
+            for ci in range(self.w):
+                cell = self.cells[ri][ci]
+                if cell == 5:
+                    self.cells[ri][ci] = 0
+        self.add_fire()
+
     def check_bounds(self, x, y):
         if (x < 0 or y < 0 or x >= self.h or y >= self.w):
             return False
