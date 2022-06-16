@@ -5,8 +5,8 @@ def randbool(r, mxr):
     return (t <= r)
 
 def randcell(w, h):
-    tw = rand(0, w)
-    th = rand(0, h)
+    tw = rand(0, w - 1)
+    th = rand(0, h - 1)
     return (th, tw)
 
 # 0 - наверх, 1 - направо, 2 - вниз, 3 - налево
