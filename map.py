@@ -15,6 +15,11 @@ class Map:
         self.cells[rx][ry] = 2
         while l > 0:
             rc2 = randcell2(rx, ry)
+            rx2, ry2 = rc[0], rc2[1]
+            if (self.check_bounds(rx2, ry2)):
+                self.cells[rx2][ry2] = 1
+                rx, ry = rx2, ry2
+                l -= 1
 
     def generate_forest(self, r, mxr):
         for ri in range(self.h):
