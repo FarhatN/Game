@@ -8,8 +8,13 @@ class Helicopter:
         self.w = w
         self.x = rx
         self.y = ry
+        self.tank = 0
+        self.mxtank = 1
 
     def move(self, dx, dy):
         nx, ny = dx + self.x, dy + self.y
         if (nx >= 0 and ny >=0 and nx < self.h and ny < self.w):
             self.x, self.y = nx, ny
+
+    def print_menu(self):
+        print('🔋 ', self.tank, '/', self.mxtank, sep='')
