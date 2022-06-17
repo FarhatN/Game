@@ -57,7 +57,6 @@ class Map:
         if (self.cells[cx][cy] == 0):
             self.cells[cx][cx] = 1
 
-
     def add_fire(self):
         c = randcell(self.w, self.h)
         cx, cy = c[0], c[1]
@@ -73,4 +72,6 @@ class Map:
         for i in range(5):
             self.add_fire()
 
-
+    def process_helicopter(self, helico):
+        if (self.cells[helico.x][helico.y] == 2):
+            helico.tank = helico.mxtank
