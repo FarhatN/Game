@@ -3,6 +3,7 @@
 from map import Map
 import time
 import os
+from helicopter import Helicopter as Helico
 
 TICK_SLEEP = 0.05
 TREE_UPDATE = 50
@@ -14,6 +15,8 @@ field.generate_forest(3, 10)
 field.generate_river(10)
 field.generate_river(10)
 field.print_map()
+
+helico = Helico(MAP_W, MAP_H)
 
 tick = 1
 
