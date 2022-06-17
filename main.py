@@ -22,17 +22,16 @@ field.generate_river(10)
 helico = Helico(MAP_W, MAP_H)
 
 
-def on_release(key):
-    print('{0} released'.format(
-        key))
-    if key == keyboard.Key.esc:
-        # Stop listener
-        return False
-
-# ...or, in a non-blocking fashion:
+MOVES = {'w': (-1, 0), 'd': (0, 1), 's': (1, 0), 'a': (0, -1)}
+def process_key(key):
+    global helico
+    c = key.char
+    if c in MOVES.keys():
+        dx, dy = MOVES[c][0], MOVES[c][1]
+        helico.move(dx, dy)
 listener = keyboard.Listener(
     on_press=None,
-    on_release=on_release)
+    on_release=process_key)
 listener.start()
 
 
