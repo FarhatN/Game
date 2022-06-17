@@ -9,6 +9,8 @@ from utils import randbool, randcell, randcell2
 
 CELL_TYPES = '❎🌳🌊🏥🏦🔥'
 
+TREE_BONUS = 100
+
 class Map:
     def __init__(self, w, h):
         self.w = w
@@ -78,4 +80,5 @@ class Map:
             helico.tank = helico.mxtank
         elif (c == 5 and helico.tank > 0):
             helico.tank -= 1
+            helico.score += TREE_BONUS
             self.cells[helico.x][helico.y] = 1
