@@ -59,6 +59,11 @@ class Map:
         if (self.cells[cx][cy] == 0):
             self.cells[cx][cx] = 1
 
+    def generate_upgrade_shop(self):
+        c = randcell(self.w, self.h)
+        cx, cy = c[0], c[1]
+        self.cells[cx][cy] = 4
+
     def add_fire(self):
         c = randcell(self.w, self.h)
         cx, cy = c[0], c[1]
