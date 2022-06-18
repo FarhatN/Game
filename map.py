@@ -29,13 +29,17 @@ class Map:
             return False
         return True
 
-    def print_map(self, helico):
+    def print_map(self, helico, clouds):
         print('🔲' * (self.w + 2))
         for ri in range(self.h):
             print('🔲', end = '')
             for ci in range(self.w):
                 cell = self.cells[ri][ci]
-                if (helico.x == ri and helico.y == ci):
+                if (clouds[ri][ci] == 1):
+                    print('☁️', end='')
+                elif (clouds[ri][ci] == 2):
+                    print('⚡', end='')
+                elif (helico.x == ri and helico.y == ci):
                     print('🚁', end = '')
                 elif (cell >= 0 and cell < len(CELL_TYPES)):
                     print(CELL_TYPES[cell], end='')
