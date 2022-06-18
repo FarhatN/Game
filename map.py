@@ -10,14 +10,19 @@ from utils import randbool, randcell, randcell2
 CELL_TYPES = '❎🌳🌊🏥🏦🔥'
 
 TREE_BONUS = 100
-
-UPGRADE_COST = 500
+UPGRADE_COST = 5000
+LIFE_COST = 10000
 
 class Map:
     def __init__(self, w, h):
         self.w = w
         self.h = h
         self.cells = [[0 for i in range(w)] for j in range(h)]
+        self.generate_forest(3, 10)
+        self.generate_river(10)
+        self.generate_river(10)
+        self.generate_upgrade_shop()
+        self.generate_hospital()
 
     def check_bounds(self, x, y):
         if (x < 0 or y < 0 or x >= self.h or y >= self.w):
@@ -66,6 +71,14 @@ class Map:
         cx, cy = c[0], c[1]
         self.cells[cx][cy] = 4
 
+    def generate_hospital(self):
+        c = randcell(self.w, self.h)
+        cx, cy = c[0], c[1]
+        if self.cells[cx][cy] != 4:
+            self.cells[cx][cy] = 3
+        else:
+            self.generate_hospital()
+
     def add_fire(self):
         c = randcell(self.w, self.h)
         cx, cy = c[0], c[1]
@@ -78,7 +91,7 @@ class Map:
                 cell = self.cells[ri][ci]
                 if cell == 5:
                     self.cells[ri][ci] = 0
-        for i in range(5):
+        for i in range(10):
             self.add_fire()
 
     def process_helicopter(self, helico):
@@ -92,3 +105,6 @@ class Map:
         if (c == 4 and helico.score >= UPGRADE_COST):
             helico.mxtank += 1
             helico.score -= UPGRADE_COST
+        if (c == 3 and helico.score >= LIFE_COST):
+            helico.lives += 1
+            helico.score -= LIFE_COST
