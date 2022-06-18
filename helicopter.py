@@ -1,4 +1,5 @@
 from utils import randcell
+import os
 
 class Helicopter:
     def __init__(self, w, h):
@@ -11,7 +12,7 @@ class Helicopter:
         self.tank = 0
         self.mxtank = 1
         self.score = 0
-        self.lives = 2
+        self.lives = 20
 
     def move(self, dx, dy):
         nx, ny = dx + self.x, dy + self.y
@@ -22,3 +23,11 @@ class Helicopter:
         print('🔋 ', self.tank, '/', self.mxtank, sep='', end=' | ')
         print('🥇', self.score, end=' | ')
         print('💗', self.lives)
+
+    def game_over(self):
+        global helico
+        os.system('cls')
+        print('XXXXXXXXXXXXXXXXXXXXXXX')
+        print('GAME OVERM YOU SCORE IS', self.score)
+        print('XXXXXXXXXXXXXXXXXXXXXXX')
+        exit(0)
