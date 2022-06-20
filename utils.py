@@ -1,3 +1,5 @@
+#version 1
+
 from random import randint as rand
 
 def randbool(r, mxr):

@@ -1,4 +1,5 @@
 # 🌳 🌊 🚁 ❎ 🔥 🏥 💗 🔋 🏦 ☁️ ⚡ 🥇
+#version 1
 
 from pynput import keyboard
 from clouds import Clouds
@@ -64,3 +65,4 @@ while True:
         field.update_fires()
     if (tick % CLOUDS_UPDATE == 0):
         clouds.update()
+
