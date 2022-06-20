@@ -39,6 +39,10 @@ def process_key(key):
     elif c == 'g':
         with open('level.json', 'r') as lvl:
             data = json.load(lvl)
+            tick = data['tick'] or 1
+            helico.import_data(data['helicopter'])
+            field.import_data(data['field'])
+            clouds.import_data(data['clouds'])
 
 listener = keyboard.Listener(
     on_press=None,
