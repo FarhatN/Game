@@ -28,6 +28,12 @@ class Helicopter:
         global helico
         os.system('cls')
         print('XXXXXXXXXXXXXXXXXXXXXXX')
-        print('GAME OVERM YOU SCORE IS', self.score)
+        print('GAME OVER YOU SCORE IS', self.score)
         print('XXXXXXXXXXXXXXXXXXXXXXX')
         exit(0)
+
+    def export_data(self):
+        return {'score': self.score,
+        'lives': self.lives,
+        'x': self.x, 'y': self.y,
+        'tank': self.tank, 'mxtank': self.mxtank}
